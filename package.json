@@ -1,0 +1,22 @@
+{
+  "name": "clean-code-esgi-project-back",
+  "version": "1.0.0",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/soumare1/clean-code-esgi-project-back.git"
+  },
+  "author": "Badis TIGHLIT , Kandioura SOUMARE , CHAHINE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/soumare1/clean-code-esgi-project-back/issues"
+  },
+  "homepage": "https://gitlab.com/soumare1/clean-code-esgi-project-back#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
