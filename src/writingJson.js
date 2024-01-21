@@ -60,4 +60,5 @@ async function ajouterAuFichier(contenuAEcrire, cheminFichier) {
     }
 }
   
-await ajouterAuFichier(contenuAEcrire, cheminFichier);
+//await ajouterAuFichier(contenuAEcrire, cheminFichier);
+//format attendu lors de l'appel
