@@ -12,5 +12,5 @@ class Cards {
     
   }
   
-  module.exports = {Cards};
+  module.exports = { Cards };
   

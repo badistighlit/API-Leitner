@@ -13,12 +13,7 @@ class CardManager{
     validationCard(card){
         card.categoryUp();
     }
-    getCardById(cardsList, id) {
-        return cardsList.find(card => card.id === id);
-    }
-    filterCardsByTag(cardsList, tag) {
-        return cardsList.filter(card => card.tag === tag);
-    }
+   
     
 
 

@@ -6,10 +6,7 @@ class RevisionManager{
 
     PlanificateRevision(cardsList,heure){
     }
-    getTodaysRevisionCards(cardsList) {
-        
-        
-    }
+    
     CardValidate(card) {
         cardManager.validationCard(card)
     }
