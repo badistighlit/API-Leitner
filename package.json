@@ -2,7 +2,12 @@
   "name": "clean-code-esgi-project-back",
   "version": "1.0.0",
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+<<<<<<< HEAD
   "main": "server.js",
+=======
+  "main": "index.js",
+  "type": "module",
+>>>>>>> c2ff5f03e2383f4441b0f474313e10894a23150e
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
