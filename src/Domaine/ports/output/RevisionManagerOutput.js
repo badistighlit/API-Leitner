@@ -1,15 +1,15 @@
-const { Category } = require("../../Entites/Category");
 
-class RevisionManagerOutput{
+import {Category} from '../../Entites/Category.js'
+export class RevisionManagerOutput{
 
 
 
     getTodaysRevisionCards(cardsList) { 
         let currentDate = new Date();
         let cardsForToday = [];
-        cardsForToday= cardsList.filter(card => card.category === Category.CATEGORY_1);
+        cardsForToday= cardsList.filter(card => card.category == Category.CATEGORY_1);
 
-        for(card in cards){
+        for(const card of cardsList){
 
             const timeDifference = currentDate - card.lastRevisedDate;
             const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
@@ -46,4 +46,3 @@ class RevisionManagerOutput{
     }
 
 }
-module.exports = {RevisionManagerOutput};

@@ -1,4 +1,4 @@
-const Category = {
+ export  const Category = {
     CATEGORY_1: 'CATEGORY_1',
     CATEGORY_2: 'CATEGORY_2',
     CATEGORY_3: 'CATEGORY_3',
@@ -8,4 +8,3 @@ const Category = {
     CATEGORY_7: 'CATEGORY_7',
   };
 
-  module.exports = {Category};

@@ -1,4 +1,4 @@
-class CardManagerOutput{
+export class CardManagerOutput{
 
     getCardById(cardsList, id) {
         return cardsList.find(card => card.id === id);
@@ -10,4 +10,3 @@ class CardManagerOutput{
 
 }
 
-module.exports = {CardManagerOutput};

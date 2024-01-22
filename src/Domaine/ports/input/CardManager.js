@@ -1,23 +1,14 @@
-const { Card } = require('../Entites/Card');
+import { Card } from '../../Entites/Card.js'
 
-
-class CardManager{
-    createCard(id, question, reponse, tag){
+export class CardManager {
+    createCard(id, question, reponse, tag) {
         let card = new Card(id, question, reponse, tag, 1)
-
+        return card
     }
-    addCardtoCards(cardsList,card) {
+    addCardtoCards(cardsList, card) {
         cardsList.push(card);
-        
     }
-    validationCard(card){
-        card.categoryUp();
+    validationCard(card) {
+        card.categoryUp()
     }
-   
-    
-
-
 }
-
-
-module.exports = {CardManager};

@@ -1,6 +1,6 @@
+import { Card } from './Card.js'
 
-
-class Cards {
+export class Cards {
     constructor() {
       this.cards = [];
     }
@@ -12,5 +12,5 @@ class Cards {
     
   }
   
-  module.exports = { Cards };
+
   

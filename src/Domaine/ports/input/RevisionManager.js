@@ -1,4 +1,5 @@
-class RevisionManager{
+import { CardManager } from "./CardManager.js";
+export class RevisionManager{
     constructor() {
         this.cardManager = new CardManager();
     }
@@ -8,7 +9,7 @@ class RevisionManager{
     }
     
     CardValidate(card) {
-        cardManager.validationCard(card)
+        this.cardManager.validationCard(card)
     }
 
 
