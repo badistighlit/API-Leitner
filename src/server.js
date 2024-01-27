@@ -1,3 +1,4 @@
+// import interne
 import { CardManager } from './Domaine/ports/input/CardManager.js';
 import { RevisionManager } from './Domaine/ports/input/RevisionManager.js';
 import { Card } from './Domaine/Entites/Card.js';
@@ -5,7 +6,50 @@ import { Cards } from './Domaine/Entites/Cards.js';
 import { Category } from './Domaine/Entites/Category.js';
 import { RevisionManagerOutput } from './Domaine/ports/output/RevisionManagerOutput.js';
 
+// import node
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
+// middleware : 
+app.use(cors({ origin: 'http://localhost:8080' }));
+
+
+
+// Route d'accueil
+app.get('/', (req, res) => {
+    res.send('Bonjour!');
+  });
+
+
+// Cards
+app.get('/cards', (req, res) => {
+    
+  });
+
+
+
+
+
+
+
+app.listen(8080, () => {
+    console.log('Le serveur est démarré sur le port 8080.');
+  });
+
+
+
+
+
+
+
+
+
+
+/*
 const cardManager = new CardManager();
 const card1 = new Card(1, 'Question 1', 'Réponse 1', 'Tag A');
 const card2 = new Card(2, 'Question 2', 'Réponse 2', 'Tag B');
@@ -25,7 +69,7 @@ const revisionManagerOutput = new RevisionManagerOutput(); // Assurez-vous que l
 // Simuler la révision des cartes
 revisionManager.CardValidate(card1);
 revisionManager.CardValidate(card2);
-revisionManager.CardValidate(card3);*/
+revisionManager.CardValidate(card3);
 
 // Obtenir les cartes à réviser aujourd'hui en utilisant le gestionnaire de sortie de révision
 let cardsForToday = revisionManagerOutput.getTodaysRevisionCards(cardsList.cards); // Utilisez cardsList.cards pour accéder à la liste de cartes
@@ -49,4 +93,4 @@ cardsForToday = revisionManagerOutput.getTodaysRevisionCards(cardsList.cards);
 console.log('Cartes à réviser aujourd\'hui :');
 for (const card of cardsForToday) {
     console.log(`ID: ${card.id}, Question: ${card.question}, Catégorie: ${card.category}`);
-}
+}*/
