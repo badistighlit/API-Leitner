@@ -8,9 +8,6 @@ export class Cards {
     addCard(card) {
       this.cards.push(card);
     }
-  
-    
   }
   
 
-  

@@ -1,30 +1,29 @@
 import { access, readFile, writeFile } from 'fs/promises';
 
 const objet = {
-    id: 2,
+    id: 3,
     tags: 'tags',
     question: 'qu\'est-ce qui est jaune et qui attend ?',
     reponse: 'Johnatan',
     category: 'CATEGORY',
     lastDateRevised: '27/01/2024'
-
 }
 
-const cheminFichier = '../../../src/database.json';
+const cheminFichier = 'src/database.json'
 
 async function vérifierFichierExiste() {
     try {
-      await access(cheminFichier);
-      console.log('Le fichier existe');
-      return true;
+        await access(cheminFichier);
+        console.log('Le fichier existe');
+        return true;
     } catch (erreur) {
-      console.log('Le fichier n\'existe pas !');
-      return false;
+        console.log('Le fichier n\'existe pas !');
+        return false;
     }
 }
 
 function vérificationObjet(objet) {
-    if (!objet.id || !objet.tag || !objet.question || !objet.reponse || !objet.category || !objet.lastDateRevised) {
+    if (!objet.id || !objet.tags || !objet.question || !objet.reponse || !objet.category || !objet.lastDateRevised) {
         console.log("L'objet doit contenir un identifiant numérique, une question, une réponse et une catégorie.");
         return false;
     }
@@ -74,6 +73,8 @@ async function ajouterAuFichier(objet, cheminFichier) {
         }
     }
 }
-  
-await ajouterAuFichier(objet, cheminFichier);
+
+//await ajouterAuFichier(objet, cheminFichier);
 //format attendu lors de l'appel
+
+export { ajouterAuFichier };

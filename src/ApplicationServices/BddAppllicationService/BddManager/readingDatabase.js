@@ -1,16 +1,16 @@
 import { access, readFile, writeFile } from 'fs/promises';
 
 
-const url = '../../../src/database.json'
+const url = 'src/database.json'
 
 async function vérifierFichierExiste() {
     try {
-      await access(url);
-      console.log('Le fichier existe');
-      return true;
+        await access(url);
+        console.log('Le fichier existe');
+        return true;
     } catch (erreur) {
-      console.log('Le fichier n\'existe pas !');
-      return false;
+        console.log('Le fichier n\'existe pas !');
+        return false;
     }
 }
 
@@ -35,5 +35,5 @@ async function lireFichier() {
     }
 }
 
-lireFichier();
+//lireFichier();
 export { lireFichier };
