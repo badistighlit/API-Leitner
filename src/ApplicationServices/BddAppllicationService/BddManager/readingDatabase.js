@@ -1,4 +1,4 @@
-import { access, readFile, writeFile } from 'fs/promises';
+import { access, readFile } from 'fs/promises';
 
 
 const url = 'src/database.json'
@@ -35,5 +35,4 @@ async function lireFichier() {
     }
 }
 
-//lireFichier();
 export { lireFichier };
