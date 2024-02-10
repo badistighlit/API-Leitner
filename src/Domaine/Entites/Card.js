@@ -2,16 +2,17 @@
 import { Category } from './Category.js'
 
  export class Card {
-    constructor(id, question, reponse, tag, category) {
+    constructor(id, question, reponse,lastDateRevised, tag, category) {
       this.id = id;
       this.question = question;
       this.reponse = reponse;
       this.tag = tag;
-      this.lastDateRevised = null;
+      this.lastDateRevised = lastDateRevised;
       
       this.category=Category.CATEGORY_1
     }
-    categoryUp(){
+
+     categoryUp(){
         
  
         if (this.category !== Category.CATEGORY_7) {

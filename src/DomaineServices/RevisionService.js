@@ -1,9 +1,19 @@
+import { CardService } from './CardService.js'
+import {Category} from '../Domaine/Entites/Category.js'
+export class RevisionService{
+    constructor() {
+        this.cardService = new CardService();
+    }
+   
 
-import {Category} from '../../Entites/Category.js'
-export class RevisionManagerOutput{
+   /* PlanificateRevision(cardsList,heure){
+    }*/
+    
+    CardValidate(card) {
+        this.cardService.validationCard(card)
+    }
 
-
-
+    
     getTodaysRevisionCards(cardsList) { 
         let currentDate = new Date();
         let cardsForToday = [];
@@ -40,9 +50,20 @@ export class RevisionManagerOutput{
                                                 break;       
                                     }
         }
+        this.setDate(cardsForToday);
         return cardsForToday;
 
         
     }
+
+    setDate(cardsList){
+        cardsList.forEach(card => {
+        this.cardService.setLastRevisionDate(card);
+            
+        });
+
+
+    }
+
 
 }

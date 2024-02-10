@@ -1,6 +1,7 @@
 import { access, readFile, writeFile } from 'fs/promises';
 
-const url = './src/database.json';
+
+const url = '../../../src/database.json'
 
 async function vérifierFichierExiste() {
     try {
@@ -13,12 +14,21 @@ async function vérifierFichierExiste() {
     }
 }
 
+async function verifierFichierNonVide() {
+    const contenu = await readFile(url, { encoding: 'utf8' });
+
+    if (!contenu){
+        console.log('Le fichier est vide')
+    } else{
+        return JSON.parse(contenu);
+    }
+
+}
+
 async function lireFichier() {
     if(await vérifierFichierExiste()) {
         try {
-            const data = await readFile(url, { encoding: 'utf8' });
-            const jsonData = JSON.parse(data);
-            console.log(jsonData);
+            return await verifierFichierNonVide();
         } catch (error) {
             console.error('Il y a eu un problème avec la lecture du fichier: ', error);
         }
@@ -26,3 +36,4 @@ async function lireFichier() {
 }
 
 lireFichier();
+export { lireFichier };

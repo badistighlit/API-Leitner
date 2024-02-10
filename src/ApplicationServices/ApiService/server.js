@@ -1,10 +1,11 @@
 // import interne
-import { CardManager } from './Domaine/ports/input/CardManager.js';
-import { RevisionManager } from './Domaine/ports/input/RevisionManager.js';
-import { Card } from './Domaine/Entites/Card.js';
-import { Cards } from './Domaine/Entites/Cards.js';
-import { Category } from './Domaine/Entites/Category.js';
-import { RevisionManagerOutput } from './Domaine/ports/output/RevisionManagerOutput.js';
+
+import { Card } from '../../Domaine/Entites/Card.js';
+import { Cards } from '../../Domaine/Entites/Cards.js';
+import { Category } from '../../Domaine/Entites/Category.js';
+import { CardService } from '../../DomaineServices/CardService.js';
+import { RevisionService } from '../../DomaineServices/RevisionService.js';
+
 
 // import node
 import express from 'express';
@@ -23,14 +24,56 @@ app.use(cors({ origin: 'http://localhost:8080' }));
 app.get('/', (req, res) => {
     res.send('Bonjour!');
   });
+  // eespace test
+  const MyRevisionService = new RevisionService();
+  const cardService = new CardService();
+  const card1 = cardService.createCard(1, 'Question 1', 'Réponse 1', 'Tag A');
+  const card2 = cardService.createCard(2, 'Question 2', 'Réponse 2', 'Tag B');
+  const card3 = cardService.createCard(3, 'Question 3', 'Réponse 3', 'Tag A');
+  const cardsList = new Cards();
+  cardService.addCardtoCards(cardsList, card1);
+  cardService.addCardtoCards(cardsList, card2);
+  cardService.addCardtoCards(cardsList, card3);
+  MyRevisionService.CardValidate(card2);
+
+
+
 
 
 // Cards
+/**
+ * TODO: remettre à jour la fonction ci dessous pour recuperer les données du fichier simulation
+ *
+ * @todo attendre le fichier de simulation de la part de chahine.
+ * @param {Type} param1 Description du paramètre 1.
+ * @param {Type} param2 Description du paramètre 2.
+ * @returns {ReturnType} cardLists
+ */
 app.get('/cards', (req, res) => {
+    res.send(cardsList);// retourner la liste de carte de la base de donnée A METTRE A JOUR
     
   });
 
-
+  app.post('/cards', (req, res) => {
+    try {
+      const { question, answer, tag } = req.body; // Supposons que votre requête contient ces données
+  
+      // Créez une instance de CardManager
+      const cardService = new CardService();
+  
+      // Utilisez la méthode createCard() pour créer une nouvelle carte
+      const newCard = cardService.createCard(44, question, answer, tag);
+  
+      // Vous pouvez également ajouter la nouvelle carte à une liste si nécessaire
+      // Exemple : cardManager.addCardtoCards(cardsList, newCard);
+  
+      // Renvoyez la nouvelle carte créée en tant que réponse avec le code 201 (Créé)
+      res.status(201).json(newCard);
+    } catch (error) {
+      // En cas d'erreur, renvoyez une réponse d'erreur
+      res.status(400).json({ error: 'Erreur lors de la création de la carte.' });
+    }
+  });
 
 
 
