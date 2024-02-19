@@ -3,23 +3,25 @@ import fs from 'fs';
 
 const objet = {
     id: 1,
-    tags: 'tags',
-    question: 'qu\'est-ce qui est jaune et qui attend ?',
-    reponse: 'Johnatan',
+    tags: 'pipooooo',
+    question: 'qu\'est-ce qui est con et qui entend ?',
+    reponse: 'tonton',
     category: 'CATEGORY',
     lastDateRevised: '27/01/2024'
 }
 
 const nouveauObjet = {
     id: 2,
-    tags: '1.0.0',
+    tag: '1.0.0',
     question: 'toc toc ?',
     reponse: 'ouistiti',
     category: 'CATEGORY3',
     lastDateRevised: '29/01/2024'
 }
 
-const cheminFichier = 'src/database.json'
+//const cheminFichier = 'src/database.json'
+//const cheminFichier = '../../../database.json'
+const cheminFichier = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
 
 async function loadData() {
     const contenuFichier = await readFile(cheminFichier, "utf8");
@@ -28,10 +30,12 @@ async function loadData() {
 
 async function vérifierFichierExiste() {
     try {
+        console.log(cheminFichier);
         await access(cheminFichier);
         console.log('Le fichier existe');
         return true;
     } catch (erreur) {
+        console.log(erreur);
         console.log('Le fichier n\'existe pas !');
         return false;
     }
@@ -49,7 +53,14 @@ async function verifierContenueFichierCrochet(jsonData) {
 
 
 function vérificationObjet(objet) {
-    if (!objet.id || !objet.tags || !objet.question || !objet.reponse || !objet.category || !objet.lastDateRevised) {
+    if (!objet.id || !objet.tag || !objet.question || !objet.reponse || !objet.category || !objet.lastDateRevised) {
+        console.log(objet.id);
+        console.log(objet.tag);
+        console.log(objet.question);
+        console.log(objet.reponse);
+        console.log(objet.category);
+        console.log(objet.lastDateRevised);
+
         console.log("L'objet doit contenir un identifiant numérique, une question, une réponse et une catégorie.");
         return false;
     }
@@ -149,6 +160,8 @@ async function supprimerCarte(objet) {
         }
     }
 }
+
+//await ajouterCarte(nouveauObjet);
 
 //format attendu lors de l'appel
 //envoyer sous format :

@@ -5,6 +5,11 @@ import { Cards } from '../../Domaine/Entites/Cards.js';
 import { Category } from '../../Domaine/Entites/Category.js';
 import { CardService } from '../../DomaineServices/CardService.js';
 import { RevisionService } from '../../DomaineServices/RevisionService.js';
+import { CardOrm } from '../BddAppllicationService/BddManager/CardORM.js';
+
+const cardOrm = new CardOrm();
+
+
 
 
 // import node
@@ -49,26 +54,49 @@ app.get('/', (req, res) => {
  * @param {Type} param2 Description du paramètre 2.
  * @returns {ReturnType} cardLists
  */
-app.get('/cards', (req, res) => {
-    res.send(cardsList);// retourner la liste de carte de la base de donnée A METTRE A JOUR
-    
-  });
 
-  app.post('/cards', (req, res) => {
+// cards 
+app.get('/cards', async (req, res) => {
+  console.log("Appel à /cards");
+ 
+  const tags = req.query.tags;
+  console.log(tags);
+  let cards = [];
+  try {
+
+      await cardOrm.init();
+      if(tags){ cards=cardOrm.getCardsFiltredby(tags)}
+      else  cards = cardOrm.getCards(); 
+      console.log(cards); 
+      res.json(cards); 
+  } catch (error) {
+      console.error('Erreur lors de la récupération des cartes: ', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+
+  console.log("Fin de /cards");
+});
+
+
+
+  app.post('/cards', async(req, res) => {
     try {
-      const { question, answer, tag } = req.body; // Supposons que votre requête contient ces données
-  
-      // Créez une instance de CardManager
+
+      const tag = req.query.tag;
+      const question = req.query.question;
+      const answer = req.query.answer;
+      console.log(question);
+
       const cardService = new CardService();
   
-      // Utilisez la méthode createCard() pour créer une nouvelle carte
-      const newCard = cardService.createCard(44, question, answer, tag);
+
+      let newCard = cardService.createCard( 22,question, answer, tag);
+      // On ajoute la nouvelle carte dans la base de données
+      await cardOrm.init();
+      newCard =await cardOrm.addCard(newCard);
+      console.log(newCard);
   
-      // Vous pouvez également ajouter la nouvelle carte à une liste si nécessaire
-      // Exemple : cardManager.addCardtoCards(cardsList, newCard);
-  
-      // Renvoyez la nouvelle carte créée en tant que réponse avec le code 201 (Créé)
-      res.status(201).json(newCard);
+      res.json(newCard);
     } catch (error) {
       // En cas d'erreur, renvoyez une réponse d'erreur
       res.status(400).json({ error: 'Erreur lors de la création de la carte.' });

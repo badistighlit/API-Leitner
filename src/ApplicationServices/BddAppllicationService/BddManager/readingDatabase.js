@@ -1,14 +1,16 @@
 import { access, readFile } from 'fs/promises';
 
+//const url = 'src/database.json'
+//const url = '../../../database.json'
 
-const url = 'src/database.json'
-
+const url = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
 async function vérifierFichierExiste() {
     try {
         await access(url);
         console.log('Le fichier existe');
         return true;
     } catch (erreur) {
+        console.log(erreur);
         console.log('Le fichier n\'existe pas !');
         return false;
     }

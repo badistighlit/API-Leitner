@@ -1,8 +1,9 @@
 import { Card } from '../Domaine/Entites/Card.js'
+import { Category } from '../Domaine/Entites/Category.js';
 
 export class CardService {
     createCard(id, question, reponse, tag) {
-        let card = new Card(id, question, reponse,null, tag, 1)
+        let card = new Card(id, question, reponse,new Date(), tag, Category.CATEGORY_1)
         return card
     }
     addCardtoCards(cardsList, card) {
