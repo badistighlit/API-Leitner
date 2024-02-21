@@ -4,8 +4,10 @@ import { CardOrm } from '../ApplicationServices/BddAppllicationService/BddManage
 
 export class CardService {
 
-    createCard(id, question, reponse, tag) {
-        let card = new Card(id, question, reponse,new Date(), tag, Category.FIRST)
+    async createCard(id, question, reponse, tag) {
+        this.cardOrm = new CardOrm();
+        this.cardOrm.init();
+        let card =await this.cardOrm.addCard(new Card(id, question, reponse,new Date(), tag, Category.FIRST));
         return card
     }
     createCardDetailled(id, question, reponse,date, tag, category){

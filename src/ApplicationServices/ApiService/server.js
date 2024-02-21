@@ -1,22 +1,16 @@
 // import interne
-
-import { Card } from '../../Domaine/Entites/Card.js';
-import { Cards } from '../../Domaine/Entites/Cards.js';
-import { Category } from '../../Domaine/Entites/Category.js';
 import { CardService } from '../../DomaineServices/CardService.js';
 import { RevisionService } from '../../DomaineServices/RevisionService.js';
 import { CardOrm } from '../BddAppllicationService/BddManager/CardORM.js';
-// Initialisation
-const cardOrm = new CardOrm();
-let revisionService = new RevisionService();
-
-
-
 
 // import node
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+
+// Initialisation
+const cardOrm = new CardOrm();
+let revisionService = new RevisionService();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -31,20 +25,6 @@ app.get('/', (req, res) => {
     res.send('Bonjour!');
   });
   // eespace test
-
-
-
-
-
-// Cards
-/**
- * TODO: remettre à jour la fonction ci dessous pour recuperer les données du fichier simulation
- *
- * @todo attendre le fichier de simulation de la part de chahine.
- * @param {Type} param1 Description du paramètre 1.
- * @param {Type} param2 Description du paramètre 2.
- * @returns {ReturnType} cardLists
- */
 
 // cards 
 app.get('/cards', async (req, res) => {
@@ -80,15 +60,12 @@ app.get('/cards', async (req, res) => {
       const cardService = new CardService();
   
 
-      let newCard = cardService.createCard( 22,question, answer, tag);
-      // On ajoute la nouvelle carte dans la base de données
-      await cardOrm.init();
-      newCard =await cardOrm.addCard(newCard);
+      let newCard = await cardService.createCard( 22,question, answer, tag);
+      
       console.log(newCard);
   
       res.json(newCard);
     } catch (error) {
-      // En cas d'erreur, renvoyez une réponse d'erreur
       res.status(400).json({ error: 'Erreur lors de la création de la carte.' });
     }
   });

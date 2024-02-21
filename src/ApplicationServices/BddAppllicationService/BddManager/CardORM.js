@@ -51,8 +51,12 @@ export class CardOrm {
     }
 
     async addCard(card) {
+        console.log(card);
         const lastCard = this.cards.cards.length > 0 ? this.cards.cards.slice(-1)[0] : { id: 0 };
+        console.log("last");
+        console.log(lastCard);
         card.id = lastCard.id + 1;
+        console.log(card);
         await ajouterCarte(card);
         return card;
     }
@@ -72,7 +76,7 @@ export class CardOrm {
     deleteCard(card){
         supprimerCarte(card);
     }
-    
+
 }
 /*
 (async () => {
