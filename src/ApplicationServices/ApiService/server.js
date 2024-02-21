@@ -6,8 +6,9 @@ import { Category } from '../../Domaine/Entites/Category.js';
 import { CardService } from '../../DomaineServices/CardService.js';
 import { RevisionService } from '../../DomaineServices/RevisionService.js';
 import { CardOrm } from '../BddAppllicationService/BddManager/CardORM.js';
-
+// Initialisation
 const cardOrm = new CardOrm();
+let revisionService = new RevisionService();
 
 
 
@@ -60,14 +61,13 @@ app.get('/cards', async (req, res) => {
   console.log("Appel à /cards");
  
   const tags = req.query.tags;
-  console.log(tags);
+
   let cards = [];
   try {
 
       await cardOrm.init();
       if(tags){ cards=cardOrm.getCardsFiltredby(tags)}
       else  cards = cardOrm.getCards(); 
-      console.log(cards); 
       res.json(cards); 
   } catch (error) {
       console.error('Erreur lors de la récupération des cartes: ', error);
@@ -104,7 +104,37 @@ app.get('/cards', async (req, res) => {
   });
 
 
+// QUIZZZZ
 
+app.get('/cards/quizz', async(req, res)=>{
+  try{
+ await cardOrm.init();
+  let cards = await revisionService.getTodaysRevisionCards( cardOrm.getCards());
+
+  res.json(cards); 
+}
+catch(error){
+  res.status(400).json({error:'Erreur lors du chargement'});
+}
+
+});
+
+
+
+
+
+app.patch('/cards/:cardId/answer', async (req, res) => {
+  try {
+      const cardId = parseInt(req.params.cardId);
+      const { answer } = req.body;
+
+      const isCorrect = await revisionService.RepondreCard(cardId, answer);
+
+      res.json({ isCorrect });
+  } catch (error) {
+      res.status(404).json({ error: error.message });
+  }
+});
 
 
 app.listen(8080, () => {

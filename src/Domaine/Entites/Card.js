@@ -9,7 +9,11 @@ import { Category } from './Category.js'
       this.tag = tag;
       this.lastDateRevised = lastDateRevised;
       
-      this.category=Category.CATEGORY_1
+      this.category=category;
+    }
+
+    secondConstructor(){
+
     }
 
      categoryUp(){

@@ -6,6 +6,11 @@ export class CardService {
         let card = new Card(id, question, reponse,new Date(), tag, Category.CATEGORY_1)
         return card
     }
+    createCardDetailled(id, question, reponse,date, tag, category){
+        let card = new Card(id, question, reponse,new Date(date) ,tag,  Category[category]);
+        return card;
+
+    }
     addCardtoCards(cardsList, card) {
         cardsList.addCard(card);
     }
@@ -19,7 +24,7 @@ export class CardService {
         return cardsList.filter(card => card.tag === tag);
     }
 
-    setLastRevisionDate(Card){
-        this.Card.lastDateRevised=new Date();
+    setLastRevisionDate(card){
+        card.lastDateRevised=new Date();
     }
 }

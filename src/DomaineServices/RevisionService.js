@@ -1,8 +1,10 @@
 import { CardService } from './CardService.js'
 import {Category} from '../Domaine/Entites/Category.js'
+import { CardOrm } from '../ApplicationServices/BddAppllicationService/BddManager/CardORM.js';
 export class RevisionService{
     constructor() {
         this.cardService = new CardService();
+        this.cardOrm = new CardOrm();
     }
    
 
@@ -12,17 +14,35 @@ export class RevisionService{
     CardValidate(card) {
         this.cardService.validationCard(card)
     }
-
+    async RepondreCard(cardId, answer) {
+        await this.cardOrm.init();
+        const card = await this.cardOrm.getCardById(cardId);
+        console.log(card);
+        if (card === undefined) {
+            throw new Error('Carte non trouvée');
+        }
+        
+        return (answer === card.reponse);
+    }
     
-    getTodaysRevisionCards(cardsList) { 
+    getTodaysRevisionCards(cardsToFilter) {
+
         let currentDate = new Date();
         let cardsForToday = [];
-        cardsForToday= cardsList.filter(card => card.category == Category.CATEGORY_1);
+        cardsForToday= cardsToFilter.filter(card => card.category == Category.CATEGORY_1);
+        
+        for(const card of cardsToFilter){
+            console.log("1------------------------:");
+            
 
-        for(const card of cardsList){
+            const timeDifference = currentDate - card.lastDateRevised;
 
-            const timeDifference = currentDate - card.lastRevisedDate;
+
             const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+            console.log(daysDifference);
+            console.log(card.category);
+            console.log(card.id);
+            console.log("fin------------------------:");
             switch (card.category) {
                 case Category.CATEGORY_2 :if (daysDifference >= 2) {
                                               cardsForToday.push(card);
@@ -49,21 +69,28 @@ export class RevisionService{
                                                     }   
                                                 break;       
                                     }
+                                    
         }
-        this.setDate(cardsForToday);
+
+       // this.setDate(cardsForToday);
+
         return cardsForToday;
 
         
     }
 
     setDate(cardsList){
+        
         cardsList.forEach(card => {
         this.cardService.setLastRevisionDate(card);
-            
+        console.log(card);
         });
+     
 
 
     }
+
+
 
 
 }
