@@ -19,26 +19,30 @@ import { Category } from './Category.js'
      categoryUp(){
         
  
-        if (this.category !== Category.CATEGORY_7) {
+        if (this.category !== Category.SEVENTH) {
             this.lastDateRevised=new Date();
             switch (this.category) {
-              case Category.CATEGORY_1:
-                this.category = Category.CATEGORY_2;
+              case Category.FIRST:
+                this.category = Category.SECOND;
                 break;
-              case Category.CATEGORY_2:
-                this.category = Category.CATEGORY_3;
+              case Category.SECOND:
+                console.log("avant ");
+                console.log(this.category);
+                this.category = Category.THIRD;
+                console.log("apres ");
+                console.log(this.category);
                 break;
-              case Category.CATEGORY_3:
-                this.category = Category.CATEGORY_4;
+              case Category.THIRD:
+                this.category = Category.FOURTH;
                 break;
-              case Category.CATEGORY_4:
-                this.category = Category.CATEGORY_5;
+              case Category.FOURTH:
+                this.category = Category.FIFTH;
                 break;
-              case Category.CATEGORY_5:
-                this.category = Category.CATEGORY_6;
+              case Category.FIFTH:
+                this.category = Category.SIXTH;
                 break;
-              case Category.CATEGORY_6:
-                this.category = Category.CATEGORY_7;
+              case Category.SIXTH:
+                this.category = Category.SEVENTH;
                 break;}
         }
         else {

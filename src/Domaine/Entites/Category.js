@@ -1,10 +1,11 @@
  export  const Category = {
-    CATEGORY_1: 'CATEGORY_1',
-    CATEGORY_2: 'CATEGORY_2',
-    CATEGORY_3: 'CATEGORY_3',
-    CATEGORY_4: 'CATEGORY_4',
-    CATEGORY_5: 'CATEGORY_5',
-    CATEGORY_6: 'CATEGORY_6',
-    CATEGORY_7: 'CATEGORY_7',
+    FIRST: 'FIRST',
+    SECOND: 'SECOND',
+    THIRD: 'THIRD',
+    FOURTH: 'FOURTH',
+    FIFTH: 'FIFTH',
+    SIXTH: 'SIXTH',
+    SEVENTH: 'SEVENTH',
+    DONE : 'DONE'
   };
 

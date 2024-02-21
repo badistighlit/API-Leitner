@@ -1,7 +1,7 @@
 import { Card } from '../../../Domaine/Entites/Card.js';
 import { Cards } from '../../../Domaine/Entites/Cards.js';
 import { lireFichier } from './readingDatabase.js';
-import { ajouterCarte } from './writingDatabase.js';
+import { ajouterCarte, modifierCarte } from './writingDatabase.js';
 import { CardService } from '../../../DomaineServices/CardService.js';
 
 export class CardOrm {
@@ -65,6 +65,14 @@ export class CardOrm {
             console.log(`ID: ${card.id}, tags: ${card.tags}, question: ${card.question}, reponse: ${card.reponse}`);
         });
     }
+
+    editCard(card){
+        modifierCarte(card);
+    }
+    deleteCard(card){
+        supprimerCarte(card);
+    }
+    
 }
 /*
 (async () => {

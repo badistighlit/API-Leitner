@@ -1,23 +1,7 @@
 import { access, readFile, writeFile } from 'fs/promises';
 import fs from 'fs';
 
-const objet = {
-    id: 1,
-    tags: 'pipooooo',
-    question: 'qu\'est-ce qui est con et qui entend ?',
-    reponse: 'tonton',
-    category: 'CATEGORY',
-    lastDateRevised: '27/01/2024'
-}
 
-const nouveauObjet = {
-    id: 2,
-    tag: '1.0.0',
-    question: 'toc toc ?',
-    reponse: 'ouistiti',
-    category: 'CATEGORY3',
-    lastDateRevised: '29/01/2024'
-}
 
 //const cheminFichier = 'src/database.json'
 //const cheminFichier = '../../../database.json'

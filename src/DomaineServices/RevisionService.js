@@ -22,14 +22,16 @@ export class RevisionService{
             throw new Error('Carte non trouvée');
         }
         
-        return (answer === card.reponse);
+        const isCorrect= (answer === card.reponse);
+        if(isCorrect){this.CardValidate(card);}
+        return isCorrect;
     }
     
     getTodaysRevisionCards(cardsToFilter) {
 
         let currentDate = new Date();
         let cardsForToday = [];
-        cardsForToday= cardsToFilter.filter(card => card.category == Category.CATEGORY_1);
+        cardsForToday= cardsToFilter.filter(card => card.category == Category.FIRST);
         
         for(const card of cardsToFilter){
             console.log("1------------------------:");
@@ -44,27 +46,27 @@ export class RevisionService{
             console.log(card.id);
             console.log("fin------------------------:");
             switch (card.category) {
-                case Category.CATEGORY_2 :if (daysDifference >= 2) {
+                case Category.SECOND :if (daysDifference >= 2) {
                                               cardsForToday.push(card);
                                                        }   
                                                break;
-                case Category.CATEGORY_3 :if (daysDifference >= 4) {
+                case Category.THIRD :if (daysDifference >= 4) {
                                            cardsForToday.push(card);
                                                     }   
                                                  break;
-                case Category.CATEGORY_4 :if (daysDifference >= 8) {
+                case Category.FOURTH :if (daysDifference >= 8) {
                                       cardsForToday.push(card);
                                                         }   
                                                 break;    
-                case Category.CATEGORY_5 :if (daysDifference >= 16) {
+                case Category.FIFTH :if (daysDifference >= 16) {
                                             cardsForToday.push(card);
                                                     }   
                                                 break;
-                case Category.CATEGORY_6 :  if (daysDifference >= 32) {
+                case Category.SIXTH :  if (daysDifference >= 32) {
                                             cardsForToday.push(card);
                                                     }   
                                                 break;
-                case Category.CATEGORY_7 : if (daysDifference >= 64) {
+                case Category.SEVENTH : if (daysDifference >= 64) {
                                             cardsForToday.push(card);
                                                     }   
                                                 break;       
