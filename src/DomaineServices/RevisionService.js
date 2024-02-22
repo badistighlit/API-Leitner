@@ -14,6 +14,23 @@ export class RevisionService{
     CardValidate(card) {
         this.cardService.validationCard(card)
     }
+    CardInvalidate(card){
+        this.cardService.invalidationCard(card);
+    }
+    async cardForcing(cardId){
+        await this.cardOrm.init();
+        console.log(cardId);
+        const cardToForce = await this.cardOrm.getCardById(cardId);
+        console.log(cardToForce);
+        if (cardToForce === undefined) {
+            throw new Error('Carte non trouvée');
+        }
+        
+        this.CardValidate(cardToForce);
+        
+        return true;
+
+    }
     async RepondreCard(cardId, answer) {
         await this.cardOrm.init();
         const card = await this.cardOrm.getCardById(cardId);
@@ -22,14 +39,23 @@ export class RevisionService{
             throw new Error('Carte non trouvée');
         }
         
-        const isCorrect= (answer === card.reponse);
+        const isCorrect= (answer === card.answer);
         if(isCorrect){this.CardValidate(card);}
+        else {this.CardInvalidate(card);}
         return isCorrect;
     }
-    
+    convertirStringEnDate(chaineDate) {
+        
+        const [jour, mois, annee] = chaineDate.split('-');
+        const date = new Date(`${annee}-${mois.padStart(2, '0')}-${jour.padStart(2, '0')}T00:00:00.000Z`);
+        console.log(date);
+        return date;
+      }
+      
     getTodaysRevisionCards(cardsToFilter) {
-
-        let currentDate = new Date();
+        let DateRevision = new Date()
+       /* if(date) DateRevision = this.convertirStringEnDate(date);
+        console.log(DateRevision);*/
         let cardsForToday = [];
         cardsForToday= cardsToFilter.filter(card => card.category == Category.FIRST);
         
@@ -37,7 +63,7 @@ export class RevisionService{
             console.log("1------------------------:");
             
 
-            const timeDifference = currentDate - card.lastDateRevised;
+            const timeDifference = DateRevision - card.lastDateRevised;
 
 
             const daysDifference = timeDifference / (1000 * 60 * 60 * 24);

@@ -2,10 +2,10 @@
 import { Category } from './Category.js'
 
  export class Card {
-    constructor(id, question, reponse,lastDateRevised, tag, category) {
+    constructor(id, question, answer,lastDateRevised, tag, category) {
       this.id = id;
       this.question = question;
-      this.reponse = reponse;
+      this.answer = answer;
       this.tag = tag;
       this.lastDateRevised = lastDateRevised;
       
@@ -15,6 +15,7 @@ import { Category } from './Category.js'
     secondConstructor(){
 
     }
+    categoryDown(){this.category=Category.FIRST}
 
      categoryUp(){
         
@@ -46,7 +47,7 @@ import { Category } from './Category.js'
                 break;}
         }
         else {
-            //faire valider la carte ensuit
+          this.category = Category.DONE;
         }
     }
   }

@@ -19,7 +19,7 @@ export class CardOrm {
             jsonData.forEach(element => {
 
                 //id, question, reponse,lastDateRevised, tag, category
-                let card = this.cardService.createCardDetailled( element.id, element.question, element.reponse, element.lastDateRevised,element.tag,element.category);
+                let card = this.cardService.createCardDetailled( element.id, element.question, element.answer, element.lastDateRevised,element.tag,element.category);
                 this.addCardtoCards(card);
 
             });
@@ -47,17 +47,18 @@ export class CardOrm {
 
     }
     async getCardById(id){
+        console.log("getCardById");
+        console.log("ID recherché :", id);
        return this.cards.cards.find(card => card.id === id);
     }
 
     async addCard(card) {
-        console.log(card);
+        await this.init();
+
         const lastCard = this.cards.cards.length > 0 ? this.cards.cards.slice(-1)[0] : { id: 0 };
-        console.log("last");
-        console.log(lastCard);
         card.id = lastCard.id + 1;
-        console.log(card);
         await ajouterCarte(card);
+        this.addCardtoCards(card); 
         return card;
     }
 
@@ -66,7 +67,7 @@ export class CardOrm {
         this.cards.cards.forEach(card => {
 
             
-            console.log(`ID: ${card.id}, tags: ${card.tags}, question: ${card.question}, reponse: ${card.reponse}`);
+            console.log(`ID: ${card.id}, tags: ${card.tags}, question: ${card.question}, answer: ${card.answer}`);
         });
     }
 

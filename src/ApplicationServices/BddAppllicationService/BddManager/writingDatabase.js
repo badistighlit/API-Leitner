@@ -37,11 +37,11 @@ async function verifierContenueFichierCrochet(jsonData) {
 
 
 function vérificationObjet(objet) {
-    if (!objet.id || !objet.tag || !objet.question || !objet.reponse || !objet.category || !objet.lastDateRevised) {
+    if (!objet.id || !objet.tag || !objet.question || !objet.answer || !objet.category || !objet.lastDateRevised) {
         console.log(objet.id);
         console.log(objet.tag);
         console.log(objet.question);
-        console.log(objet.reponse);
+        console.log(objet.answer);
         console.log(objet.category);
         console.log(objet.lastDateRevised);
 

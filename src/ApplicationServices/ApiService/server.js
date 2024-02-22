@@ -52,10 +52,9 @@ app.get('/cards', async (req, res) => {
   app.post('/cards', async(req, res) => {
     try {
 
-      const tag = req.query.tag;
-      const question = req.query.question;
-      const answer = req.query.answer;
-      console.log(question);
+      const tag = req.body.tag;
+      const question = req.body.question;
+      const answer = req.body.answer;
 
       const cardService = new CardService();
   
@@ -71,10 +70,13 @@ app.get('/cards', async (req, res) => {
   });
 
 
+
 // QUIZZZZ
 
 app.get('/cards/quizz', async(req, res)=>{
   try{
+  //const date = req.query.date;
+  
  await cardOrm.init();
   let cards = await revisionService.getTodaysRevisionCards( cardOrm.getCards());
 
@@ -87,7 +89,16 @@ catch(error){
 });
 
 
+app.post('/cards/:cardId/answer/force', async (req, res) => {
+  try{  
 
+    const cardId = parseInt(req.params.cardId);
+     await revisionService.cardForcing(cardId);
+     res.json("sucess");
+
+  }
+  catch(error){res.status(400).json({error:'Erreur lors du forcing'})}
+})
 
 
 app.patch('/cards/:cardId/answer', async (req, res) => {
