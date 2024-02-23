@@ -7,7 +7,7 @@ const url = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
 async function vérifierFichierExiste() {
     try {
         await access(url);
-        console.log('Le fichier existe');
+        //console.log('Le fichier existe');
         return true;
     } catch (erreur) {
         console.log(erreur);

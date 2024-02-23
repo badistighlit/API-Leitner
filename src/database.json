@@ -4,23 +4,23 @@
     "question": "rust?",
     "answer": "fedge",
     "tag": "rust",
-    "lastDateRevised": "2024-02-21T22:57:53.553Z",
-    "category": "FIRST"
+    "lastDateRevised": "2024-02-20T15:44:14.185Z",
+    "category": "SEVENTH"
   },
   {
     "id": 2,
     "question": "amk",
     "answer": "dina",
     "tag": "pap",
-    "lastDateRevised": "2024-02-21T22:58:08.849Z",
-    "category": "FIRST"
+    "lastDateRevised": "2024-02-22T20:35:24.537Z",
+    "category": "SECOND"
   },
   {
     "id": 3,
     "question": "votreQuestion",
     "answer": "votreReponse",
     "tag": "votreTag",
-    "lastDateRevised": "2024-02-21T23:07:54.295Z",
+    "lastDateRevised": "2024-02-23T14:17:47.737Z",
     "category": "FIRST"
   },
   {
@@ -29,6 +29,30 @@
     "answer": "3",
     "tag": "mathimatik",
     "lastDateRevised": "2024-02-22T00:17:44.160Z",
-    "category": "DONE"
+    "category": "SECOND"
+  },
+  {
+    "id": 5,
+    "question": "What is pair programming ?",
+    "answer": "A practice to work in pair on same computer.",
+    "tag": "Teamwork",
+    "lastDateRevised": "2024-02-22T20:25:04.121Z",
+    "category": "SECOND"
+  },
+  {
+    "id": 6,
+    "question": "What is pair programming ?",
+    "answer": "rist.",
+    "tag": "rust",
+    "lastDateRevised": "2024-02-20T14:38:45.749Z",
+    "category": "SECOND"
+  },
+  {
+    "id": 7,
+    "question": "question?",
+    "answer": "réponse",
+    "tag": "tagtag",
+    "lastDateRevised": "2024-02-22T22:56:53.145Z",
+    "category": "SECOND"
   }
 ]

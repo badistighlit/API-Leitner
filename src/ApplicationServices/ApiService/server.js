@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 // cards 
 app.get('/cards', async (req, res) => {
-  console.log("Appel à /cards");
+
  
   const tags = req.query.tags;
 
@@ -44,7 +44,7 @@ app.get('/cards', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 
-  console.log("Fin de /cards");
+
 });
 
 
@@ -61,7 +61,6 @@ app.get('/cards', async (req, res) => {
 
       let newCard = await cardService.createCard( 22,question, answer, tag);
       
-      console.log(newCard);
   
       res.json(newCard);
     } catch (error) {
@@ -75,10 +74,16 @@ app.get('/cards', async (req, res) => {
 
 app.get('/cards/quizz', async(req, res)=>{
   try{
-  //const date = req.query.date;
+    await cardOrm.init();
+    let cards =[]
+  const date = req.query.date;
+  if(date) {console.log("OK ON CHERCHE UNE DATE "+date);
+           cards= await revisionService.getTodaysRevisionCards( cardOrm.getCards(),revisionService.convertirStringToDate(date));}
+            else{cards =await revisionService.getTodaysRevisionCards( cardOrm.getCards(),new Date()) }
+
   
- await cardOrm.init();
-  let cards = await revisionService.getTodaysRevisionCards( cardOrm.getCards());
+
+  
 
   res.json(cards); 
 }
@@ -103,17 +108,28 @@ app.post('/cards/:cardId/answer/force', async (req, res) => {
 
 app.patch('/cards/:cardId/answer', async (req, res) => {
   try {
-      const cardId = parseInt(req.params.cardId);
-      const { answer } = req.body;
+    const cardId = parseInt(req.params.cardId);
+    await cardOrm.init();
+    
+  
+    if (!cardOrm.getCardById(cardId)) {
+      return res.status(404).json({ error: "Card not found" });
+    }
+    
 
-      const isCorrect = await revisionService.RepondreCard(cardId, answer);
-
-      res.json({ isCorrect });
+    let { isValid } = req.body;
+    await revisionService.RepondreCard(cardId, isValid);
+    if (isValid===true) {
+      console.log("réponse correct prise en compte");
+      return res.status(204).json("Answer has been taken into account"); // body vide
+    } else {
+      console.log("réponse fausse prise en compte");
+      return res.status(400).json({ error: "Bad request" });
+    }
   } catch (error) {
-      res.status(404).json({ error: error.message });
+    return res.status(404).json({ error: error.message });
   }
 });
-
 
 app.listen(8080, () => {
     console.log('Le serveur est démarré sur le port 8080.');

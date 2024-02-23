@@ -14,9 +14,9 @@ async function loadData() {
 
 async function vérifierFichierExiste() {
     try {
-        console.log(cheminFichier);
+
         await access(cheminFichier);
-        console.log('Le fichier existe');
+        
         return true;
     } catch (erreur) {
         console.log(erreur);
@@ -38,12 +38,7 @@ async function verifierContenueFichierCrochet(jsonData) {
 
 function vérificationObjet(objet) {
     if (!objet.id || !objet.tag || !objet.question || !objet.answer || !objet.category || !objet.lastDateRevised) {
-        console.log(objet.id);
-        console.log(objet.tag);
-        console.log(objet.question);
-        console.log(objet.answer);
-        console.log(objet.category);
-        console.log(objet.lastDateRevised);
+
 
         console.log("L'objet doit contenir un identifiant numérique, une question, une réponse et une catégorie.");
         return false;
@@ -53,7 +48,7 @@ function vérificationObjet(objet) {
 
 async function writeFileWhenDontHaveAccolade(cheminFichier, contenuAEcrire) {
     await writeFile(cheminFichier, '[' + contenuAEcrire + '\n]');
-    console.log('Le contenu a été ajouté dans le fichier vide avec succès.');
+
 }
 
 async function writeFileWhenHaveAccolade(cheminFichier, contenuAEcrire, contenuActuel, dernierAccoladeIndex) {
@@ -65,7 +60,7 @@ async function writeFileWhenHaveAccolade(cheminFichier, contenuAEcrire, contenuA
         ].join('');
         
         await writeFile(cheminFichier, contenuMisAJour);
-        console.log('Le contenu a été ajouté dans le fichier avec succès.');
+       // console.log('Le contenu a été ajouté dans le fichier avec succès.');
 }
 
 async function verifierSiFichierVide(contenuActuel) {

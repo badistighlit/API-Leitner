@@ -15,7 +15,7 @@ export class CardOrm {
         try {
             this.cards=new Cards();
             const jsonData = await lireFichier();
-           // console.log(jsonData)
+
             jsonData.forEach(element => {
 
                 //id, question, reponse,lastDateRevised, tag, category
@@ -47,7 +47,7 @@ export class CardOrm {
 
     }
     async getCardById(id){
-        console.log("getCardById");
+
         console.log("ID recherché :", id);
        return this.cards.cards.find(card => card.id === id);
     }
