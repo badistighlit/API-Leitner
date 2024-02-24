@@ -5,7 +5,8 @@ import fs from 'fs';
 
 //const cheminFichier = 'src/database.json'
 //const cheminFichier = '../../../database.json'
-const cheminFichier = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
+//const cheminFichier = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
+const cheminFichier = '../../database.json'
 
 async function loadData() {
     const contenuFichier = await readFile(cheminFichier, "utf8");
