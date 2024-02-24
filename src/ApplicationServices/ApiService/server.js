@@ -37,8 +37,15 @@ app.get('/cards', async (req, res) => {
 
       await cardOrm.init();
       if(tags){ cards=cardOrm.getCardsFiltredby(tags)}
-      else  cards = cardOrm.getCards(); 
-      res.json(cards); 
+      else  cards = cardOrm.getCards();
+      const Response = cards.map(card => ({
+        id: card.id,
+        category: card.category,
+        question: card.question,
+        answer: card.answer,
+        tag: card.tag,
+      })); 
+      res.json(Response); 
   } catch (error) {
       console.error('Erreur lors de la récupération des cartes: ', error);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -81,11 +88,16 @@ app.get('/cards/quizz', async(req, res)=>{
            cards= await revisionService.getTodaysRevisionCards( cardOrm.getCards(),revisionService.convertirStringToDate(date));}
             else{cards =await revisionService.getTodaysRevisionCards( cardOrm.getCards(),new Date()) }
 
-  
 
   
-
-  res.json(cards); 
+  const Response = cards.map(card => ({
+  id: card.id,
+  category: card.category,
+  question: card.question,
+  answer: card.answer,
+  tag: card.tag,
+            })); 
+  res.json(Response);   
 }
 catch(error){
   res.status(400).json({error:'Erreur lors du chargement'});
