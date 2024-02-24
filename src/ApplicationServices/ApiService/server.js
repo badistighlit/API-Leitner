@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // middleware : 
-app.use(cors({ origin: 'http://localhost:8080' }));
+//app.use(cors({ origin: 'http://localhost:8080' }));
 
 
 

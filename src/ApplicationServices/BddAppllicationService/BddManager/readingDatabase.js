@@ -1,9 +1,9 @@
 import { access, readFile } from 'fs/promises';
 
-//const url = 'src/database.json'
+const url = 'src/database.json'
 //const url = '../../../database.json'
 
-const url = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
+//const url = 'ProjetCards/Back/clean-code-esgi-project-back/src/database.json'
 async function vérifierFichierExiste() {
     try {
         await access(url);
