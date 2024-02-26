@@ -51,7 +51,9 @@ POST /cards/:cardId/answer/force : Force la révision d'une carte spécifique.
 
 
 Auteur
+
 TIGHLIT Badis
+
 MEHADJI Chahine
 
 Merci d'utiliser notre API de Cartes de Révision!
