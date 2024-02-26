@@ -28,17 +28,25 @@ npm start
 L'API sera accessible à l'adresse http://localhost:8080.
 
 ## Endpoints
-Accueil
+
+#Accueil
 GET / : Affiche un message de bienvenue.
-Cartes
+
+#Cartes
 GET /cards : Récupère la liste des cartes. Les filtres peuvent être appliqués en utilisant les paramètres de requête, par exemple, /cards?tags=tag1,tag2.
+
 POST /cards : Crée une nouvelle carte en spécifiant le tag, la question et la réponse dans le corps de la requête au format JSON.
-Quizz
+
+#Quizz
 GET /cards/quizz : Récupère les cartes pour le quiz du jour. Les cartes révisées sont basées sur la date fournie en paramètre, par exemple, /cards/quizz?date=2024-02-26.
+
 Réponses aux Cartes
+
 PATCH /cards/:cardId/answer : Met à jour la réponse à une carte spécifique. Le corps de la requête doit contenir un champ isValid pour indiquer si la réponse est correcte.
 
+
 POST /cards/:cardId/answer/force : Force la révision d'une carte spécifique.
+
 
 
 
