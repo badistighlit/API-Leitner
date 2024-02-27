@@ -2,7 +2,6 @@ import { access, readFile } from 'fs/promises';
 
 const url = 'src/database.json'
 
-//const url = '../../../database.json'
 
 
 async function vérifierFichierExiste() {

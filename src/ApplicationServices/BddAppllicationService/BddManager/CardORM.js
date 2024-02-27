@@ -42,7 +42,7 @@ export class CardOrm {
     
 
     
-        return this.cards.cards.filter(card => card.tag===tags);
+        return this.cards.cards.filter(card => tags.includes(card.tag));
     
 
     }
@@ -79,10 +79,4 @@ export class CardOrm {
     }
 
 }
-/*
-(async () => {
-    const cardOrm = new CardOrm();
-    await cardOrm.init();
-    cardOrm.afficherCartes();
-})();
-*/
+

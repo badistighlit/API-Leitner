@@ -36,7 +36,10 @@ app.get('/cards', async (req, res) => {
   try {
 
       await cardOrm.init();
-      if(tags){ cards=cardOrm.getCardsFiltredby(tags)}
+      if(tags){ 
+        const tagArray = tags.split(',');
+        
+        cards=cardOrm.getCardsFiltredby(tagArray)}
       else  cards = cardOrm.getCards();
       const Response = cards.map(card => ({
         id: card.id,
