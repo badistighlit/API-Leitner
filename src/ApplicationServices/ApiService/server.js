@@ -136,7 +136,7 @@ app.patch('/cards/:cardId/answer', async (req, res) => {
     await revisionService.RepondreCard(cardId, isValid);
     if (isValid===true) {
       console.log("réponse correct prise en compte");
-      return res.status(204).json("Answer has been taken into account"); // body vide
+      return res.status(200).json("Answer has been taken into account"); // body vide
     } else {
       console.log("réponse fausse prise en compte");
       return res.status(400).json({ error: "Bad request" });
