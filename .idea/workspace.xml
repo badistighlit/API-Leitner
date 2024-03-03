@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="97eee6fc-28ba-44f0-916a-dc85c7c3798c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ApplicationServices/ApiService/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationServices/ApiService/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationServices/BddAppllicationService/BddManager/readingDatabase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApplicationServices/BddAppllicationService/BddManager/readingDatabase.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +34,10 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/kandi/Desktop/Projet_M1/clean_code/Back/clean-code-esgi-project-back&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -49,6 +56,7 @@
       <workItem from="1708766961939" duration="39000" />
       <workItem from="1708767007398" duration="77000" />
       <workItem from="1708767695913" duration="182000" />
+      <workItem from="1709237061434" duration="414000" />
     </task>
     <servers />
   </component>
