@@ -16,9 +16,9 @@ export class RevisionService{
     }
     async cardForcing(cardId){
         await this.cardOrm.init();
-        console.log(cardId);
+        
         const cardToForce = await this.cardOrm.getCardById(cardId);
-        console.log(cardToForce);
+        
         if (cardToForce === undefined) {
             throw new Error('Carte non trouvée');
         }
@@ -51,10 +51,10 @@ export class RevisionService{
             
 
             const timeDifference = DateRevision - card.lastDateRevised;
-            console.log(timeDifference.toString());
+
 
             const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-            console.log(daysDifference.toString());
+            
             if(daysDifference<0) break;
 
             switch (card.category) {

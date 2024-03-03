@@ -1,4 +1,4 @@
-import { Card } from '../../../Domaine/Entites/Card.js';
+
 import { Cards } from '../../../Domaine/Entites/Cards.js';
 import { lireFichier } from './readingDatabase.js';
 import { ajouterCarte, modifierCarte } from './writingDatabase.js';
@@ -20,7 +20,7 @@ export class CardOrm {
 
                 //id, question, reponse,lastDateRevised, tag, category
                 let card = this.cardService.createCardDetailled( element.id, element.question, element.answer, element.lastDateRevised,element.tag,element.category);
-                this.addCardtoCards(card);
+                this.addCardToCards(card);
 
             });
         } catch (error) {
@@ -28,7 +28,7 @@ export class CardOrm {
         }
     }
 
-    addCardtoCards(card) {
+    addCardToCards(card) {
         this.cards.addCard(card);
     }
      getCards(){
@@ -37,7 +37,7 @@ export class CardOrm {
         return this.cards.cards;
     }
 
-    getCardsFiltredby(tags) {
+    getCardsFiltredBy(tags) {
 
     
 
@@ -58,7 +58,7 @@ export class CardOrm {
         const lastCard = this.cards.cards.length > 0 ? this.cards.cards.slice(-1)[0] : { id: 0 };
         card.id = lastCard.id + 1;
         await ajouterCarte(card);
-        this.addCardtoCards(card); 
+        this.addCardToCards(card); 
         return card;
     }
 

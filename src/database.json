@@ -1,106 +1,90 @@
 [
   {
     "id": 1,
-    "question": "rust?",
-    "answer": "fedge",
-    "tag": "rust",
-    "lastDateRevised": "2024-02-26T23:05:40.614Z",
-    "category": "FOURTH"
+    "question": "principe clean code ?",
+    "answer": "SOLID",
+    "tag": "clean code",
+    "lastDateRevised": "2024-03-03T15:41:15.697Z",
+    "category": "FIRST"
   },
   {
     "id": 2,
-    "question": "amk",
-    "answer": "dina",
-    "tag": "pap",
-    "lastDateRevised": "2024-02-26T23:06:09.875Z",
-    "category": "THIRD"
+    "question": "ONE TWO THREE ?",
+    "answer": "VIVA NAPOLI",
+    "tag": "DZ",
+    "lastDateRevised": "2024-03-03T15:20:15.800Z",
+    "category": "FIRST"
   },
   {
     "id": 3,
-    "question": "votreQuestion",
-    "answer": "votreReponse",
-    "tag": "votreTag",
-    "lastDateRevised": "2024-02-23T14:17:47.737Z",
-    "category": "THIRD"
+    "question": "1+1 =?",
+    "answer": "2",
+    "tag": "maths",
+    "lastDateRevised": "2024-03-03T15:20:40.783Z",
+    "category": "FIRST"
   },
   {
     "id": 4,
-    "question": "1+1+1",
-    "answer": "3",
-    "tag": "mathimatik",
-    "lastDateRevised": "2024-02-26T22:58:31.542Z",
-    "category": "THIRD"
+    "question": "le boss ?",
+    "answer": "badis",
+    "tag": "boss",
+    "lastDateRevised": "2024-03-03T15:21:04.228Z",
+    "category": "FIRST"
   },
   {
     "id": 5,
-    "question": "What is pair programming ?",
-    "answer": "A practice to work in pair on same computer.",
-    "tag": "Teamwork",
-    "lastDateRevised": "2024-02-26T23:04:40.110Z",
-    "category": "FOURTH"
+    "question": "Album de l'année ?",
+    "answer": "solsad",
+    "tag": "rap",
+    "lastDateRevised": "2024-03-03T15:21:40.400Z",
+    "category": "FIRST"
   },
   {
     "id": 6,
-    "question": "What is pair programming ?",
-    "answer": "rist.",
-    "tag": "rust",
-    "lastDateRevised": "2024-02-20T14:38:45.749Z",
+    "question": "footballeur de l'histoire de france ?",
+    "answer": "Zidane",
+    "tag": "FOOT",
+    "lastDateRevised": "2024-03-03T15:22:05.113Z",
     "category": "FIRST"
   },
   {
     "id": 7,
-    "question": "question?",
-    "answer": "réponse",
-    "tag": "tagtag",
-    "lastDateRevised": "2024-02-26T23:06:48.659Z",
-    "category": "FOURTH"
+    "question": "pire programmation ?",
+    "answer": "rust",
+    "tag": "avis perso",
+    "lastDateRevised": "2024-03-03T15:22:40.627Z",
+    "category": "FIRST"
   },
   {
     "id": 8,
-    "question": "What is pair programming ?",
-    "answer": "rist.",
-    "tag": "rust",
-    "lastDateRevised": "2024-02-24T09:16:17.111Z",
-    "category": "THIRD"
+    "question": "d'où l'expression <nachave> ?",
+    "answer": "Lyon",
+    "tag": "cluture G",
+    "lastDateRevised": "2024-03-03T15:23:42.359Z",
+    "category": "FIRST"
   },
   {
     "id": 9,
-    "question": "question?222",
-    "answer": "réponse",
-    "tag": "CARTE DE TEST",
-    "lastDateRevised": "2023-02-19T23:06:54.630Z",
+    "question": "d'où vient l'expression <LE S> ?",
+    "answer": "Marseille",
+    "tag": "cluture G",
+    "lastDateRevised": "2024-03-03T15:24:02.271Z",
     "category": "FIRST"
   },
   {
     "id": 10,
-    "question": "badis",
-    "answer": "tighlit",
-    "tag": "tag",
-    "lastDateRevised": "2024-02-26T23:07:07.125Z",
-    "category": "SECOND"
-  },
-  {
-    "id": 11,
-    "question": "comment",
-    "answer": "il va",
-    "tag": "tagat",
-    "lastDateRevised": "2024-02-24T10:35:52.704Z",
+    "question": "d'où vient l'expression <pelo> ?",
+    "answer": "Lyon",
+    "tag": "cluture G",
+    "lastDateRevised": "2024-03-03T15:24:11.639Z",
     "category": "FIRST"
   },
   {
-    "id": 13,
-    "question": "je crée2",
-    "answer": "question2",
-    "tag": "TAG",
-    "lastDateRevised": "2024-02-26T23:02:03.833Z",
-    "category": "THIRD"
-  },
-  {
-    "id": 14,
-    "question": "Bonjour",
-    "answer": "bonjour",
-    "tag": "bjr",
-    "lastDateRevised": "2024-02-27T22:32:31.734Z",
-    "category": "SECOND"
+    "id": 11,
+    "question": "Macron ?",
+    "answer": "démission ",
+    "tag": "cluture G",
+    "lastDateRevised": "2024-03-03T15:24:59.576Z",
+    "category": "FIRST"
   }
 ]

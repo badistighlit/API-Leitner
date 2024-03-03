@@ -1,5 +1,5 @@
 import { access, readFile, writeFile } from 'fs/promises';
-import fs from 'fs';
+
 
 
 
@@ -78,7 +78,7 @@ async function ajouterCarte(objet) {
 
                 if (await verifierContenueFichierCrochet(contenuActuel)) {
                     try {
-                        await writeFile(cheminFichier, ''); // Écrire une chaîne vide dans le fichier pour le vider complètement
+                        await writeFile(cheminFichier, ''); 
                         contenuActuel = await readFile(cheminFichier, 'utf-8');
                     } catch (erreur) { 
                         console.error("Erreur lors de la vérification du contenu du fichier :", erreur);
@@ -139,11 +139,5 @@ async function supprimerCarte(objet) {
     }
 }
 
-//await ajouterCarte(nouveauObjet);
-
-//format attendu lors de l'appel
-//envoyer sous format :
-//await "fonction"(carte)
-//voir exemple d'objet tout en haut du fichier 
 
 export { ajouterCarte, modifierCarte, supprimerCarte };

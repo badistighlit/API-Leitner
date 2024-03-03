@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // middleware : 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 
 
@@ -39,7 +41,7 @@ app.get('/cards', async (req, res) => {
       if(tags){ 
         const tagArray = tags.split(',');
         
-        cards=cardOrm.getCardsFiltredby(tagArray)}
+        cards=cardOrm.getCardsFiltredBy(tagArray)}
       else  cards = cardOrm.getCards();
       const Response = cards.map(card => ({
         id: card.id,
@@ -87,7 +89,7 @@ app.get('/cards/quizz', async(req, res)=>{
     await cardOrm.init();
     let cards =[]
   const date = req.query.date;
-  if(date) {console.log("OK ON CHERCHE UNE DATE "+date);
+  if(date) {
            cards= await revisionService.getTodaysRevisionCards( cardOrm.getCards(),revisionService.convertirStringToDate(date));}
             else{cards =await revisionService.getTodaysRevisionCards( cardOrm.getCards(),new Date()) }
 
@@ -130,13 +132,16 @@ app.patch('/cards/:cardId/answer', async (req, res) => {
     if (!cardOrm.getCardById(cardId)) {
       return res.status(404).json({ error: "Card not found" });
     }
+
     
 
     let { isValid } = req.body;
+    console.log("reception de la reponse:")
+    console.log(isValid);
     await revisionService.RepondreCard(cardId, isValid);
     if (isValid===true) {
       console.log("réponse correct prise en compte");
-      return res.status(204).json("Answer has been taken into account"); // body vide
+      return res.status(204).json("Answer has been taken into account"); 
     } else {
       console.log("réponse fausse prise en compte");
       return res.status(400).json({ error: "Bad request" });

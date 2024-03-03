@@ -27,11 +27,11 @@ import { Category } from './Category.js'
                 this.category = Category.SECOND;
                 break;
               case Category.SECOND:
-                console.log("avant ");
-                console.log(this.category);
+                
+                
                 this.category = Category.THIRD;
-                console.log("apres ");
-                console.log(this.category);
+                
+              
                 break;
               case Category.THIRD:
                 this.category = Category.FOURTH;
